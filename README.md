@@ -1,0 +1,1 @@
+trying to maek 8085 simulator (going to regret ts)
