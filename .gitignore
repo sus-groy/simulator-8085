@@ -1,0 +1,4 @@
+*.o
+bin/
+build/
+.DS_Store  # If you're on Mac

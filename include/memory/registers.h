@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 typedef struct Register_8b; // stores 8 bit data word
-// 1 byte = 8 bits
+// only forward declaration so that outside files can't access internal data 
 
 int get_data_8b(Register_8b *reg);  // get 8-bit data
 void set_data_8b(Register_8b *reg, int8_t new_data_8b);  // set new 8-bit data
@@ -23,6 +23,8 @@ Register_8b reg_L;
 // ^ end of 8-bit registers file
 
 typedef struct Register_16b;  // register that can contain 16-bit data word
+// only forward declaration so that outside files can't access internal data 
+
 
 int get_data_16b(Register_16b *reg);
 void set_data_16b(Register_16b * reg, int16_t new_data_16b);
