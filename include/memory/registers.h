@@ -1,36 +1,32 @@
-#ifndef REGISTERS_H
-#define REGISTERS_H
+#pragma once
 #include <stdint.h>
 
-typedef struct Register_8b; // stores 8 bit data word
+typedef struct Reg8 Reg8; // stores 8 bit data word
 // only forward declaration so that outside files can't access internal data 
 
-int get_data_8b(Register_8b *reg);  // get 8-bit data
-void set_data_8b(Register_8b *reg, int8_t new_data_8b);  // set new 8-bit data
+int8_t get_data_8(Reg8 *reg);  // get 8-bit data
+void set_data_8(Reg8 *reg, int8_t new_data_8b);  // set new 8-bit data
 
 // start of 8-bit registers file:
-Register_8b reg_A;  // accumulator
-Register_8b reg_F;  // flags register
+Reg8 reg_A;  // accumulator
+Reg8 reg_F;  // flags register
 
-Register_8b reg_B;
-Register_8b reg_C;
+Reg8 reg_B;
+Reg8 reg_C;
 
-Register_8b reg_D;
-Register_8b reg_E;
+Reg8 reg_D;
+Reg8 reg_E;
 
-Register_8b reg_H;
-Register_8b reg_L;
+Reg8 reg_H;
+Reg8 reg_L;
 // ^ end of 8-bit registers file
 
-typedef struct Register_16b;  // register that can contain 16-bit data word
+typedef struct Reg16 Reg16;  // register that can contain 16-bit data word
 // only forward declaration so that outside files can't access internal data 
 
+int16_t get_data_16(Reg16 *reg);
+void set_data_16(Reg16 * reg, int16_t new_data_16b);
 
-int get_data_16b(Register_16b *reg);
-void set_data_16b(Register_16b * reg, int16_t new_data_16b);
-
-Register_16b reg_SP;    // stack pointer
-Register_16b reg_PC;    // programme counter
+Reg16 reg_SP;    // stack pointer
+Reg16 reg_PC;    // programme counter
 // only two 16-bit registers in system
-
-#endif

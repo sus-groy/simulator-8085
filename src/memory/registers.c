@@ -1,31 +1,19 @@
 #include "../include/memory/registers.h"
 
-
-typedef struct{
-    int8_t data;
-}Register_8b;
-
-int get_data_8b(Register_8b *reg){
-    // get 8-bit data
-    return reg->data;                   
+#define HELPERS(type_t, suffix) \
+typedef struct Reg##suffix { \
+    type_t data; \
+} Reg##suffix; \
+\
+type_t get_data_##suffix(Reg##suffix *reg) { \
+    return reg->data; \
+} \
+\
+void set_data_##suffix(Reg##suffix *reg, type_t new_data) { \
+    reg->data = new_data; \
 }
 
-void set_data_8b(Register_8b *reg, int8_t new_data_8b){
-    // set new 8-bit data in reg
-    reg->data = new_data_8b;                                                                        
-}
+HELPERS(int8_t, 8)
+HELPERS(int16_t, 16)
 
-
-typedef struct{
-    int16_t data;
-}Register_16b;
-
-int get_data_16b(Register_16b *reg){
-    // get 8-bit data
-    return reg->data;                   
-}
-
-void set_data_16b(Register_16b *reg, int16_t new_data_16b){
-    // set new 8-bit data in reg
-    reg->data = new_data_16b;                                                                        
-}
+#undef HELPERS
