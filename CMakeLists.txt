@@ -7,10 +7,14 @@ set(CMAKE_C_EXTENSIONS OFF) # Pure C11, no extensions
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# Find the system's official threading library configurations 
+find_package(Threads REQUIRED)
+
 file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.c")
 add_executable(simulator_8085 ${SOURCES})
 
 target_include_directories(simulator_8085 PRIVATE include)
+target_link_libraries(simulator_8085 PRIVATE Threads::Threads)
 if(MSVC)
     # MSVC equivalent flags: 
     # /W4 (High warning level), /WX (Treat warnings as errors)
