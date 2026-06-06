@@ -1,4 +1,4 @@
-#include "../include/memory/registers.h"
+#include "memory/registers.h"
 
 #define HELPERS(type_t, suffix) \
 typedef struct Reg##suffix { \
@@ -17,6 +17,8 @@ HELPERS(int8_t, 8)
 HELPERS(int16_t, 16)
 
 #undef HELPERS
+
+// Actual allocation for the registers
 
 Reg8 reg_A;  
 Reg8 reg_F;  
