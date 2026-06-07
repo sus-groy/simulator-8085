@@ -10,7 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Find the system's official threading library configurations 
 find_package(Threads REQUIRED)
 
-file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.c")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.c")
 add_executable(simulator_8085 ${SOURCES})
 
 target_include_directories(simulator_8085 PRIVATE include)
