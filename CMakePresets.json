@@ -5,7 +5,6 @@
         "minor": 21,
         "patch": 0
     },
-
     "configurePresets": [
         {
             "name": "base",
@@ -26,9 +25,14 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "name": "base_msvc",
+            "generator": "Visual Studio 18 2026",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/build/${presetName}"
         }
     ],
-
     "buildPresets": [
         {
             "name": "debug",
@@ -38,6 +42,16 @@
         {
             "name": "release",
             "configurePreset": "release",
+            "configuration": "Release"
+        },
+        {
+            "name": "debug_msvc",
+            "configurePreset": "base_msvc",
+            "configuration": "Debug"
+        },
+        {
+            "name": "release_msvc",
+            "configurePreset": "base_msvc",
             "configuration": "Release"
         }
     ]
